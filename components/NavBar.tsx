@@ -3,8 +3,10 @@
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import { NAV_TABS } from "../config/constants";
+import { useUser } from '@auth0/nextjs-auth0';
 
 export default function Navbar() {
+  const { user, isLoading: isUserLoading } = useUser();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false); // State to manage dropdown visibility
 
   const toggleDropdown = () => {
@@ -149,7 +151,27 @@ export default function Navbar() {
             </div>
           </div>
         </div>
-        <div className="navbar-end"></div>
+        <div className="navbar-end">
+          {isUserLoading ? (
+            <></>
+          ) : user ? (
+            <Link className="btn mx-2" href="/api/auth/logout">
+              Log Out
+            </Link>
+          ) : (
+            <>
+              <Link
+                className="btn mx-2"
+                href={"/api/auth/login?screen_hint=signup"}
+              >
+                Sign Up
+              </Link>
+              <Link className="btn mx-2" href={"/api/auth/login"}>
+                Log In
+              </Link>
+            </>
+          )}
+        </div>
       </div>
     </div>
   );
