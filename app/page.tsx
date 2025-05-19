@@ -10,7 +10,6 @@ export default function Home() {
       <div className="w-full mx-auto min-h-screen bg-base-200">
         {/* container */}
         <Header title="Welcome to iCAA" subtitle="Alumni hub" />
-
         <div className="grid grid-cols-1 md:grid-cols-5 gap-4 w-full py-4 items-start">
           <div className="col-span-1">
             <ProfileCard />
@@ -50,7 +49,7 @@ export default function Home() {
               This card uses the custom card-dash class.
             </p>
           </div>
-        </div>     
+        </div>
       </div>
     </main>
   );

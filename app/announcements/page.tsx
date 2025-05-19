@@ -36,18 +36,20 @@ export default function AnnouncementsPage() {
   }, []);
 
   const handleDelete = (id: number) => {
-  setPosts((prevPosts) => prevPosts.filter((post) => post.id !== id));
-};
+    setPosts((prevPosts) => prevPosts.filter((post) => post.id !== id));
+  };
 
   return (
     <div className="bg-info">
       <Header title="What's New" subtitle="Announcements!" />
-      
+
       <div className="container mx-auto min-h-screen flex flex-col items-center border-2 border-info-content">
         <div>
           <Link href={"/announcements/make-announcement"}>
-          <Button className="mt-8 btn btn-outline btn-info-content">Make an Announcement</Button>
-        </Link>
+            <Button className="mt-8 btn btn-outline btn-info-content">
+              Make an Announcement
+            </Button>
+          </Link>
         </div>
         <div className="w-full px-4">
           {posts.map((post) => (
@@ -61,22 +63,26 @@ export default function AnnouncementsPage() {
                 </div>
               </div>
               <div className="chat-header text-xl text-info-content">
-                  {post.title}
+                {post.author.name}
               </div>
-              <div className="chat-bubble text-info">{post.content}</div> 
+              <div className="chat-bubble text-info">
+                <div><b>{post.title}</b></div>
+                <p>{post.content}</p>
+              </div>
               <div className="chat-footer text-info-content">
-              <div>   {post.author.name}  </div>
+                <div> </div>
                 <time className="text-xs opacity-50 ml-2">
                   {post.createdAt
                     ? format(new Date(post.createdAt), "PPpp")
                     : "Unknown date"}
                 </time>
-               <div>    <DeleteAnnouncement
-                  postID={post.id}
-                  onDelete={handleDelete}
-                  
-                /> </div>
-               
+                <div>
+                  {" "}
+                  <DeleteAnnouncement
+                    postID={post.id}
+                    onDelete={handleDelete}
+                  />{" "}
+                </div>
               </div>
             </div>
           ))}
