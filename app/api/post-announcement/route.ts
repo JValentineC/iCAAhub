@@ -21,7 +21,7 @@ export async function POST(request: Request): Promise<Response> {
     const { title, content } = res;
 
     // Always post as admin user with user_id = 9
-    const adminUserId = 9;
+    const adminUserId = 1;
 
     // TODO: In the future, replace the hardcoded adminUserId with the ID of the currently logged-in user.
     // Example:
