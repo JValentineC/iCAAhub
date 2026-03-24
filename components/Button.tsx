@@ -8,9 +8,9 @@ const buttonStyles = cva(["transition-colors"], {
 
   variants: {
     variant: {
-      default: ["bg-info", "text-secondary", "hover:bg-error", "hover:text-info"],
-      ghost: ["btn-ghost", "hover:bg-base-200", "hover:text-info-content"],
-      active: ["border", "border-info-content", "text-info-content", "hover:text-info-content"],
+      default: ["bg-secondary", "text-white", "hover:bg-primary", "hover:text-white"],
+      ghost: ["btn-ghost", "hover:bg-base-300", "hover:text-secondary"],
+      active: ["border", "border-primary", "text-primary", "hover:bg-primary/10"],
     },
     size: {
       default: ["rounded", "p-2",],

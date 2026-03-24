@@ -28,13 +28,13 @@ export default function Navbar() {
 
           {/* Dropdown Menu */}
           {isMenuOpen && (
-            <div className="absolute top-12 left-0 bg-white shadow-lg rounded-md p-4 z-50">
+            <div className="absolute top-12 left-0 bg-base-100 shadow-lg rounded-lg border border-base-300 p-4 z-50">
               <ul className="flex flex-col gap-2">
                 {Object.entries(NAV_TABS).map(([label, href]) => (
                   <li key={label}>
                     <Link
                       href={href}
-                      className="text-black hover:text-blue-500"
+                      className="text-base-content hover:text-primary transition-colors"
                       onClick={() => setIsMenuOpen(false)} // Close menu on link click
                     >
                       {label}
@@ -75,9 +75,9 @@ export default function Navbar() {
             <input
               type="search"
               placeholder="Search..."
-              className="rounded-l-full border border-info shadow-inner shadow-info py-1 px-4 text-lg w-full focus:border-error outline-none"
+              className="rounded-l-full border border-base-300 shadow-inner shadow-base-300/50 py-1 px-4 text-lg w-full focus:border-primary outline-none"
             />
-            <Button className="py-2 px-4 rounded-r-full border-info border border-1-0 flex-shrink-0">
+            <Button className="py-2 px-4 rounded-r-full border-base-300 border border-1-0 flex-shrink-0">
               <Search />
             </Button>
           </div>
